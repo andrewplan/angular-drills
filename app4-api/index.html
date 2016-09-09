@@ -1,7 +1,32 @@
 <html ng-app="apiApp">
-	<body>
-		
-				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<head>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body ng-controller="mainCtrl">
+		<h2>Get inspirations from yo word</h2>
+		<input type="text" ng-model="word">
+		<button ng-click="getWords( word )">Submit</button>
+		<div class="words-wrapper">
+
+			<div class="rhymes-wrapper">
+				<h3 ng-show="isHeaderShowing">Rhymes</h3>
+				<ul class="rhymes-list">
+					<li ng-repeat="rhyme in rhymes">{{ rhyme }}</li>
+				</ul>
+			</div>
+
+			<div class="synonyms-wrapper">
+				<h3 ng-show="isHeaderShowing">Synonyms</h3>
+				<ul class="synonyms-list">
+					<li ng-repeat="synonym in synonyms">{{ synonym }}</li>
+				</ul>
+			</div>
+
+		</div>
+
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 		<script src="app.js"></script>
 		<script src="controller.js"></script>
 		<script src="service.js"></script>
